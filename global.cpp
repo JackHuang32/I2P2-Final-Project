@@ -50,15 +50,20 @@ int waste_num = Brick_n+Wire_n+Drink_n+Paper_n;
 void init_grid(std::vector<int>typeNum)
 {
     std::vector<std::pair<int,int>>ind;
+    std::set<std::pair<int,int>>ind_set;
     srand(time(nullptr));
     //generate random coord
     std::cout<<"generating random coordinates"<<std::endl;
-    while(waste_num > (int)ind.size())
+    while(waste_num > (int)ind_set.size())
     {   
         int tmpx = rand()%rows;
         int tmpy = rand()%cols;
         auto coord = std::make_pair(tmpx,tmpy);   
-        ind.push_back(coord);
+        if(ind_set.find(coord)==ind_set.end())
+        {
+            ind_set.insert(coord);
+            ind.push_back(coord);
+        }
     }
     std::cout<<"finish generating random coordinates"<<std::endl;
     for(WasteType t = BRICK;t<=PAPER; t = WasteType(t+1))
@@ -116,7 +121,7 @@ void init_grid(std::vector<int>typeNum)
                     );
                 //std::cout<<"generating paper"<<std::endl;    
             }
-            waste_set.push_back(&grid[tmpx][tmpy]);
+            //waste_set.push_back(&grid[tmpx][tmpy]);
             ind.pop_back();
         }
     }    
