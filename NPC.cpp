@@ -9,6 +9,7 @@ void NPC::move()
     st = static_cast<CharactorState>(rand()%4);
     int dx = dir[st][0];
     int dy = dir[st][1];
+    this->set_state(st);
     //move if the step is not out of range otherwise return
     if(this->valid_move(dx,dy))
     {
