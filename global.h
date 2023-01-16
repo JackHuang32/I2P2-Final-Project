@@ -58,6 +58,7 @@ extern int Paper_n;
 
 extern std::vector<std::vector<bool>> check_grid;
 extern std::vector<std::vector<Waste>> grid;
+extern std::vector<Waste> waste_set;
 extern void init_grid(std::vector<int>typeNum);
 extern void print_grid();
 extern void set_empty(int x,int y);                             

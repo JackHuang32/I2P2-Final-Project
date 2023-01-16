@@ -116,6 +116,7 @@ void init_grid(std::vector<int>typeNum)
                     );
                 //std::cout<<"generating paper"<<std::endl;    
             }
+            waste_set.push_back(grid[tmpx][tmpy]);
             ind.erase(coord);
         }
     }    
