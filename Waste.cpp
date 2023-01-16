@@ -10,6 +10,7 @@ Waste::Waste(int x,int y,int w,int h,WasteType t,int v)
     set_posy( ((double)y+0.5) * grid_height );
     set_covered();
     set_value(v);
+    set_type(t);
 }
 
 void Waste::PrintInfo()
