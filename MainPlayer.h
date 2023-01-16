@@ -1,6 +1,7 @@
 #ifndef MAINPLAYER_H_INCLUDED
 #define MAINPLAYER_H_INCLUDED
 #include"Charactor.h"
+#include"global.h"
 #include<vector>
 class MainPlayer : public Charactor{
 private:
@@ -23,8 +24,8 @@ public:
         set_hint(hint_);
         set_chance(ch);
         set_goal(g);
-        set_posx((x+0.5)*50);
-        set_posx((y+0.5)*50);
+        set_posx((y+0.5)*grid_width);
+        set_posy((x+0.5)*grid_height);
     }
 
     void set_hint(int h) { hint = h;}

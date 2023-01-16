@@ -6,8 +6,8 @@ Waste::Waste(int x,int y,int w,int h,WasteType t,int v)
     set_gridy(y);
     set_width(w);
     set_height(h);
-    set_posx( ((double)x+0.5) * grid_width );
-    set_posy( ((double)y+0.5) * grid_height );
+    set_posx( ((double)y+0.5) * grid_width );
+    set_posy( ((double)x+0.5) * grid_height );
     set_covered();
     set_value(v);
     set_type(t);

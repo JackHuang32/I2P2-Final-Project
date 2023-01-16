@@ -1,4 +1,5 @@
 #include "Charactor.h"
+#include"global.h"
 //#include <allegro5/allegro.h>
 //#include <allegro5/allegro_primitives.h>
 const char direction_name[][10] = {"LEFT", "RIGHT", "UP", "DOWN"};
@@ -24,8 +25,8 @@ void Charactor::step(double dx,double dy)
 {
     set_posx(get_posx()+dx);
     set_posy(get_posy()+dy);
-    set_gridx( (int)(get_posx() * 500 / 500) );
-    set_gridy( (int)(get_posy() * 500 / 500) );
+    set_gridx( (int)(get_posy() / grid_width) );
+    set_gridy( (int)(get_posx() / grid_height) );
 }
 Charactor::~Charactor()
 {
