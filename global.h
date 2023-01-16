@@ -60,4 +60,9 @@ extern std::vector<std::vector<bool>> check_grid;
 extern std::vector<std::vector<Waste>> grid;
 extern void init_grid(std::vector<int>typeNum);
 extern void print_grid();
+extern void set_empty(int x,int y);                             
+
+extern int get_waste_value(int x,int y);
+
+extern bool isfull(int x,int y);
 #endif // GLOBAL_H_INCLUDED

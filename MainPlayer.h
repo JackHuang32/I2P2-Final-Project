@@ -32,6 +32,8 @@ public:
     void set_chance(int c) { chance = c;}
     void Inc_chance() {chance++;}
     void Dec_chance() {chance--;}
+    void Inc_hint() {hint++;}
+    void Dec_hint() {hint--;}
     void dig()override;
     void moveUp();
     void moveDown();
@@ -42,8 +44,10 @@ public:
     int get_goal() { return goal;}
     int get_hint() { return hint;}
     int get_chance() { return chance;}
+    int use_hint();
 
     bool isWin() { return goal <= point;}
     bool isLose() { return chance <= 0;}
+    bool haveHint() { return hint>0;}
 };
 #endif

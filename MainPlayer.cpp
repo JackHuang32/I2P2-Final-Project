@@ -1,7 +1,7 @@
 #include"MainPlayer.h"
-
+#include"global.h"
 void MainPlayer::dig()
-{   /*
+{   
     this->set_state(DIG);
     //use one chance to dig
     this->Dec_chance();
@@ -9,9 +9,9 @@ void MainPlayer::dig()
     if(isfull( this->get_gridx(),this->get_gridy() ))
     {
         //mark the waste empty
-        grid->set_empty(this->get_gridx(),this->get_gridy());
+        set_empty(this->get_gridx(),this->get_gridy());
         //add point to the charactor
-        this->add_point(grid->get_waste_value(
+        this->add_point(get_waste_value(
             this->get_gridx(),this->get_gridy()
                 )
             );
@@ -20,7 +20,7 @@ void MainPlayer::dig()
     {
         return;
     }
-    */
+    
 }
 void MainPlayer::moveUp()
 {
@@ -72,4 +72,28 @@ void MainPlayer::PrintInfo()
     std::cout<<"hint: "<<get_hint()<<std::endl;
     std::cout<<"goal: "<<get_goal()<<std::endl;
     std::cout<<"------------------END----------------------"<<std::endl;
+}
+
+int MainPlayer::use_hint()
+{
+    if(!this->haveHint())return -1;
+    this->Dec_hint();
+    int count = 0;
+    int cur_x = this->get_gridx();
+    int cur_y = this->get_gridy();
+    for(int x=cur_x-1 ; x<=cur_x+1 ; x++)
+    {
+        for(int y=cur_y-1 ; y<=cur_y+1 ; y++)
+        {
+            if(x<0 || x>=rows || y<0 || y>=cols)
+            {
+                continue;
+            }
+            else if(check_grid[x][y] && !grid[x][y].found())
+            {
+                count++;
+            }
+        }
+    }
+    return count;
 }

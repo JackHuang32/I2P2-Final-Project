@@ -130,3 +130,17 @@ void print_grid()
         }
     }
 }
+void set_empty(int x,int y)
+{
+    check_grid[x][y] = false;
+}
+
+int get_waste_value(int x,int y)
+{
+    return grid[x][y].get_value();
+}
+
+bool isfull(int x,int y)
+{
+    return check_grid[x][y];
+}
